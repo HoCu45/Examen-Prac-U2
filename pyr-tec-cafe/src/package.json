@@ -1,0 +1,11 @@
+{
+"main": "src/main.ts",
+"scripts": {
+"exec": "tsx main.ts",
+"dev": "tsx watch src/main.ts",
+"build": "tsc",
+"start": "node dist/main.js",
+"test": "NODE_OPTIONS=--experimental-vm-modules jest --verbose --coverage",
+"type": "module"
+}
+}
