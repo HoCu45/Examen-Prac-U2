@@ -28,7 +28,7 @@ get saldoActual(): number { return this.props.saldo;
 
 }
 
-getldAlumno(): string {
+getIdAlumno(): string {
 
 return this.props.idAlumno;
 
