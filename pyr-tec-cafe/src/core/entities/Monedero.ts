@@ -11,6 +11,7 @@ constructor(private props: MonederoProps) {}
 
 // Regla de Negocio: No se puede recargar más de $500 
 public validarMontoRecarga (monto: number): boolean { return monto >= 50 && monto <= 500;
+    
 
 }
 
@@ -32,6 +33,10 @@ getIdAlumno(): string {
 
 return this.props.idAlumno;
 
+}
+
+getSaldo(): number {
+  return this.saldoActual;
 }
 
 }
