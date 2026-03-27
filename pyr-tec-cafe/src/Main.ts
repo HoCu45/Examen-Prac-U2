@@ -11,17 +11,17 @@ async function main() {
   // 2. Crear monedero de prueba
   const monedero = new Monedero({
     idAlumno: "alumno123",
-    saldo: 150
+    saldo: 200
   });
 
   // 3. Guardarlo
   await repo.guardar(monedero);
 
   // 4. Crear caso de uso
-  const consultarSaldo1 = new ConsultarSaldo(repo);
+  const consultarSaldo = new ConsultarSaldo(repo);
 
   // 5. Ejecutar caso de uso
-  const saldo = await consultarSaldo1.ejecutar("alumno123");
+  const saldo = await consultarSaldo.ejecutar("alumno123");
 
   console.log("💰 Saldo actual del alumno:", saldo);
 }

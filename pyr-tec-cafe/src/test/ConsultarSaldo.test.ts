@@ -13,7 +13,7 @@ describe("ConsultarSaldoUseCase", () => {
 
     const monedero = new Monedero({
       idAlumno: "alumno123",
-      saldo: 200
+      saldo: 500
     });
 
     repo.guardar(monedero);
@@ -21,7 +21,7 @@ describe("ConsultarSaldoUseCase", () => {
 
   it("debería retornar el saldo correctamente", async () => {
     const saldo = await useCase.ejecutar("alumno123");
-    expect(saldo).toBe(200);
+    expect(saldo).toBe(500);
   });
 
   it("debería lanzar error si el monedero no existe", async () => {
