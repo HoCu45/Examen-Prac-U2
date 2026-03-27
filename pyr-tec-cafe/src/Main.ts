@@ -11,7 +11,7 @@ async function main() {
   // 2. Crear monedero de prueba
   const monedero = new Monedero({
     idAlumno: "alumno123",
-    saldo: 200
+    saldo: 300
   });
 
   // 3. Guardarlo

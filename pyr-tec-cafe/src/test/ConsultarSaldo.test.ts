@@ -13,7 +13,7 @@ describe("ConsultarSaldoUseCase", () => {
 
     const monedero = new Monedero({
       idAlumno: "alumno123",
-      saldo: 500
+      saldo: 300
     });
 
     repo.guardar(monedero);
