@@ -10,13 +10,13 @@ export class MockMonederoRepository implements IMonederoRepository {
 
 private monederos: Map<string, Monedero> = new Map();
 
-async buscarPorld(id: string): Promise<Monedero> {
+async buscarPorId(id: string): Promise<Monedero> {
 
 const monedero = this.monederos.get(id);
 
 if (!monedero) {
-console.log('No se encontró un monedero para el ID:  $(id)');
-throw new Error('Monedero no encontrado para el ID: $(id)');
+console.log(`No se encontró un monedero para el ID: ${id}`);
+throw new Error(`Monedero no encontrado para el ID: ${id}`);
 }
 return monedero;
 }

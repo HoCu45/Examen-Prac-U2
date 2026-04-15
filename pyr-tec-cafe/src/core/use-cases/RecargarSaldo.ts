@@ -1,24 +1,25 @@
-import { IMonederoRepository} from "../../core/infraestructure/Repository/IMonederoRepository";
+import { IMonederoRepository } from "../infraestructure/Repository/IMonederoRepository.js";
 
 export class RecargarSaldoUseCase {
 
-// Recibimos el repositorio (la conexión a DB) como interfaz 
-constructor(private repository: IMonederoRepository) {}
+  constructor(private repository: IMonederoRepository) {}
 
-async ejecutar(idAlumno: string, monto: number): Promise<number> {
+  async ejecutar(idAlumno: string, monto: number): Promise<number> {
 
-// 1. Buscar los datos
+    // 1. Buscar monedero
+    const monedero = await this.repository.buscarPorId(idAlumno);
 
-const monedero = await this.repository.buscarPorld(idAlumno);
+    if (!monedero) {
+      throw new Error(`Monedero no encontrado para el ID: ${idAlumno}`);
+    }
 
-// 2. Ejecutar lógica de dominio monedero.sumarSaldo(monto);
+    // 2. Ejecutar lógica de dominio
+    monedero.sumarSaldo(monto);
 
-// 3. Persistir cambios
+    // 3. Guardar cambios
+    await this.repository.guardar(monedero);
 
-await this.repository.guardar(monedero);
-
-return monedero.saldoActual;
-
-}
-
+    // 4. Retornar saldo actualizado
+    return monedero.getSaldo();
+  }
 }

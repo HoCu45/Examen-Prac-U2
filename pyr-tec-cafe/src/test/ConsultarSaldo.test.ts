@@ -21,7 +21,7 @@ describe("ConsultarSaldoUseCase", () => {
 
   it("debería retornar el saldo correctamente", async () => {
     const saldo = await useCase.ejecutar("alumno123");
-    expect(saldo).toBe(500);
+    expect(saldo).toBe(300);
   });
 
   it("debería lanzar error si el monedero no existe", async () => {

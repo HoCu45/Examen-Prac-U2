@@ -33,7 +33,7 @@ describe("RecargarSaldoUseCase", () => {
 
     await expect(
       useCase.ejecutar("alumno123", 600)
-    ).rejects.toThrow("Monto de recarga inválido para las reglas del Tec-Cafe");
+    ).rejects.toThrow("Monto de recarga inválido para las reglas del Tec-Café");
   });
 
   it("debería lanzar error si el monedero no existe", async () => {

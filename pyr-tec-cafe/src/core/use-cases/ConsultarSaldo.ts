@@ -5,7 +5,7 @@ export class ConsultarSaldo {
   constructor(private repo: IMonederoRepository) {}
 
   async ejecutar(idAlumno: string): Promise<number> {
-    const monedero = await this.repo.buscarPorld(idAlumno);
+    const monedero = await this.repo.buscarPorId(idAlumno);
 
     if (!monedero) {
       throw new Error(`Monedero no encontrado para el ID: ${idAlumno}`);
