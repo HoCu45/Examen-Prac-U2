@@ -1,23 +1,27 @@
-import {Monedero} from "../core/entities/Monedero.js";
+import { Monedero } from "../core/entities/Monedero";
 
-const objMonedero = new Monedero({
+describe("Monedero", () => {
 
-idAlumno: "124345",
+  it("debería aumentar el saldo correctamente", () => {
+    const monedero = new Monedero({
+      idAlumno: "alumno123",
+      saldo: 100
+    });
 
-saldo: 500
+    monedero.sumarSaldo(100);
 
-});
+    expect(monedero.getSaldo()).toBe(200);
+  });
 
-describe("Pruebas de Monedero Tec-Café", () => {
+  it("debería lanzar error si el monto es inválido", () => {
+    const monedero = new Monedero({
+      idAlumno: "alumno123",
+      saldo: 100
+    });
 
-test("Recarga debe ser entre 50 y 500", () => {
-
-expect( objMonedero.validarMontoRecarga(50) ).toBe(true); });
-
-test("Recarga mayor a 500 imposible", () => { expect( objMonedero.validarMontoRecarga(600) ).toBe(false); });
-
-test("Recarga menor a 50 imposible", () => {
-
-expect( objMonedero.validarMontoRecarga(40) ).toBe(false); });
+    expect(() => {
+      monedero.sumarSaldo(30);
+    }).toThrow("Monto de recarga inválido");
+  });
 
 });
